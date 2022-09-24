@@ -1,0 +1,149 @@
+//Creaete users
+
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Musa Turay",
+    "email": "info@turaymusa.com",
+    "password": "Sunshine@2022",
+    "confPassword": "Sunshine@2022",
+    "role": "admin"
+}
+
+
+###
+//Get All Users
+GET http://localhost:5000/users
+
+
+###
+//GetSingle User
+GET http://localhost:5000/users/e55f42be-7e27-4056-846d-923a6afe6dfb
+
+
+
+
+###
+
+//Creaete users
+
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Turaymathic Turay",
+    "email": "info@turaymathic.com",
+    "password": "Sunshine@2022",
+    "confPassword": "Sunshine@2022",
+    "role": "user"
+}
+
+
+###
+//Get All Users
+GET http://localhost:5000/users
+
+
+###
+//GetSingle User
+GET http://localhost:5000/users/d9297021-9197-4a50-aa53-4c644d7b45e2
+
+
+###
+//Update Users
+GET http://localhost:5000/users/d9297021-9197-4a50-aa53-4c644d7b45e2
+
+
+
+
+
+
+
+
+###
+ 
+ //Update user
+PATCH http://localhost:5000/users/d9297021-9197-4a50-aa53-4c644d7b45e2
+Content-Type: application/json
+
+{
+    "name": "Nfa Turay",
+    "email": "info@turaymathic.com",
+    "password": "Sunshine@2022",
+    "confPassword": "Sunshine@2022",
+    "role": "admin"
+}
+
+
+
+
+###
+
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Delete Turay",
+    "email": "info@turaymusa.com",
+    "password": "Sunshine@2022",
+    "confPassword": "Sunshine@2022",
+    "role": "user"
+}
+
+
+
+###
+//Delete users
+
+DELETE http://localhost:5000/users/c2d444d2-2d2f-49f9-be37-78ac8861d3dd
+
+
+
+
+###
+//Login Users
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+
+    "email": "info@turaymusa.com",
+    "password": "Sunshine@2022"
+}
+
+
+
+###
+//Login Users 2
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+   
+    "email": "info@turaymusa.com",
+    "password": "Sunshine@2022"
+}
+
+
+###
+//Login Users 2
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+   
+    "email": "men270992@gmail.com",
+    "password": "qwerty12345"
+}
+
+
+###
+//Loggedin Users
+GET http://localhost:5000/me
+
+
+###
+//Logout
+DELETE http://localhost:5000/logout
