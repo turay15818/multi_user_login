@@ -6,14 +6,11 @@ import db from "./config/Database.js";
 import SequelizeStore from "connect-session-sequelize";
 import UserRoute from "./routes/UserRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
-import compression from "compression";
-import helmet from "helmet";
-
 dotenv.config();
 
 
 const app = express();
-
+app.use(express.json());
 const sessionStore = SequelizeStore(session.Store);
 
 const store = new sessionStore({
@@ -39,12 +36,18 @@ app.use(cors({
     origin: 'http://localhost:3000'
 }));
 
-app.use(express.json());
+
 app.use(UserRoute);
 app.use(AuthRoute);
 
 // store.sync();
 
-app.listen(process.env.APP_PORT, ()=> {
-    console.log('Server up and running...');
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, (error) => {
+    error ? console.error(error) : console.log(`server running on port ${PORT}`);
 });
+
+
+// app.listen(process.env.APP_PORT, ()=> {
+//     console.log('Server up and running...');
+// });

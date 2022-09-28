@@ -4,6 +4,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { LoginUser, reset } from "../features/authSlice";
 import OrangeLogo from "../assets/OrangeLogo.png";
 import Typical from "react-typical";
+import { isRejected } from "@reduxjs/toolkit";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +14,9 @@ const Login = () => {
   const { user, isError, isSuccess, isLoading, message } = useSelector(
     state => state.auth
   );
+
+  const [errorMessage, setErrorMessage] = useState("")
+  const [loginErrorManage, setLoginErrorManage] = useState(false);
 
   useEffect(
     () => {
@@ -24,10 +28,36 @@ const Login = () => {
     [user, isSuccess, dispatch, navigate]
   );
 
+  // const Auth = e => {
+  //   e.preventDefault();
+  //   dispatch(LoginUser({ email, password }));
+  // };
+
+
+
   const Auth = e => {
     e.preventDefault();
-    dispatch(LoginUser({ email, password }));
+    dispatch(LoginUser({ email, password }))
+      .unwrap()
+      .then((res) => {
+        // console.log(res)
+      })
+      .catch((err) => {
+        setLoginErrorManage(true)
+        // console.log(err)
+        if (err.message === "Rejected") {
+          setErrorMessage("Account Suspended \n")
+        } else {
+          setErrorMessage(err)
+        }
+        // console.log(err)
+      })
+
+
   };
+
+
+
 
   const forgotPassword = () => {
     dispatch(forgotPassword());
@@ -56,6 +86,11 @@ const Login = () => {
     textAlign: 'center'
   };
 
+
+
+
+
+
   return (
     <section
       className="hero is-fullheight is-fullwidth"
@@ -69,20 +104,20 @@ const Login = () => {
         <div className="container">
           <div className="columns is-centered" style={{}}>
             <div className="column is-4" style={Logo}>
-             <h1 style={typical}>Hello
-             <Typical
-                steps={[
-                  "Welcome", 1000,
-                  "to", 1000,
-                  "Orange", 1000,
-                  "Sierra Leone", 1000,
-                 
-                ]}
-                loop={Infinity}
-                wrapper="p"
-                
-              />
-             </h1>
+              <h1 style={typical}>Hello
+                <Typical
+                  steps={[
+                    "Welcome", 1000,
+                    "to", 1000,
+                    "Orange", 1000,
+                    "Sierra Leone", 1000,
+
+                  ]}
+                  loop={Infinity}
+                  wrapper="p"
+
+                />
+              </h1>
               <div className="columns is-centered" style={center}>
                 <img
                   src={OrangeLogo}
@@ -128,23 +163,27 @@ const Login = () => {
                     type="submit"
                     className="button is-success is-fullwidth"
                     style={{ backgroundColor: "black" }}
+
                   >
                     {isLoading ? "Loading..." : "Login"}
+
                   </button>
 
                   <button
                     onClick={forgotPassword}
-                    className="button is-white"
+                    className="button is-success is-fullwidth"
                     type="submit"
-                    style={{ marginTop: 10 }}
-                  >
-                    <NavLink to={"/ForgotPassword"}>Forgot Password</NavLink>
+                    style={{ marginTop: 10, alignItems:'center', backgroundColor: 'white'}}>
+                    <NavLink to={"/ForgotPassword"}> {loginErrorManage && <p style={{ backgroundColor: 'black', color: 'orange', fontSize: '15px', padding: '12px', borderRadius: '20px' }}>{errorMessage} <strong style={{color: 'white'}}> Click here to verify your Account</strong></p>}</NavLink>
                   </button>
                 </div>
-                {isError &&
+                {/* {isError &&
                   <p className="has-text-centered" style={{ color: "red" }}>
                     {message}
-                  </p>}
+
+                  </p>
+                  } */}
+
               </form>
             </div>
           </div>

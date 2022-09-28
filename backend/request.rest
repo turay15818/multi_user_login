@@ -96,7 +96,7 @@ Content-Type: application/json
 ###
 //Delete users
 
-DELETE http://localhost:5000/users/c2d444d2-2d2f-49f9-be37-78ac8861d3dd
+DELETE http://localhost:5000/users/1c641758-a6c9-42e2-991b-a132755efff2
 
 
 
