@@ -4,7 +4,7 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Musa Turay",
+    "name": "Nfa Musa",
     "email": "info@turaymusa.com",
     "password": "Sunshine@2022",
     "confPassword": "Sunshine@2022",

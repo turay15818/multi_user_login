@@ -1,46 +1,46 @@
 import React from "react";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import Carousel from 'react-bootstrap/Carousel';
 import Image from '../assets/Image.jpg';
 import ImageTwo from '../assets/ImageTwo.jpg';
 import ImageThree from '../assets/ImageThree.jpg';
-import moment from 'moment'
+//import moment from 'moment'
 import Accordion from 'react-bootstrap/Accordion';
 const Welcome = () => {
-  const { user } = useSelector((state) => state.auth);
+ // const { user } = useSelector((state) => state.auth);
   // const Home ={
   //   paddingTop: 30,
   //   marginTop: -20
   // };
 
 
-  const forDate = {
-    display: 'flex',
-    borderRadius: 20,
-    backgroundColor: 'black',
-    padding: 20,
-    width: 330,
-    marginTop: 20,
-    marginRight: 50,
-    height: 70
-  };
+  // const forDate = {
+  //   display: 'flex',
+  //   borderRadius: 20,
+  //   backgroundColor: 'black',
+  //   padding: 20,
+  //   width: 330,
+  //   marginTop: 20,
+  //   marginRight: 50,
+  //   height: 70
+  // };
 
-  const currentDate = moment().format('DD-MM-YYYY')
+ // const currentDate = moment().format('DD-MM-YYYY')
   // // const today = new Date();
 
 
-  const date = new Date();
-  const current_time = date.getHours() + ":" + date.getMinutes();
+  //const date = new Date();
+  //const current_time = date.getHours() + ":" + date.getMinutes();
 
-  const all = {
-    display: 'flex',
-    marginTop: 30
-  }
+  // const all = {
+  //   display: 'flex',
+  //   marginTop: 30
+  // }
 
 
-  const dashboard = {
-    padding: 20
-  }
+  // const dashboard = {
+  //   padding: 20
+  // }
 
   return (
     <div >

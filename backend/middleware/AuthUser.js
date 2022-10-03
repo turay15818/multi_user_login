@@ -21,6 +21,7 @@ export const adminOnly = async (req, res, next) =>{
             uid: req.session.userId
         }
     });
+    
     if(!user) return res.status(404).json({msg: "User does not exit"});
     if(user.role !== "admin") return res.status(403).json({msg: "ops! Access Forbidden"});
     next();

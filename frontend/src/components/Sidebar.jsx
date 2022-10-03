@@ -38,6 +38,7 @@ display: 'fixed'
           </li>
           
         </ul>
+        
         {user && user.role === "admin" && (
           <div>
             <p className="menu-label" style={{marginTop: 20}}>Admin</p>

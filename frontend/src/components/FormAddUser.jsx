@@ -21,6 +21,7 @@ const FormAddUser = () => {
         confPassword: confPassword,
         role: role,
       });
+
       navigate("/users");
     } catch (error) {
       if (error.response) {
@@ -37,7 +38,7 @@ const FormAddUser = () => {
         <div className="card-content">
           <div className="content">
             <form onSubmit={saveUser}>
-              <p className="has-text-centered" style={{color: 'red'}}>{msg}</p>
+              <p className="has-text-centered" style={{ color: 'red' }}>{msg}</p>
               <div className="field">
                 <label className="label">Name</label>
                 <div className="control">
@@ -95,15 +96,17 @@ const FormAddUser = () => {
                       onChange={(e) => setRole(e.target.value)}
                     >
                       <option value="">Select</option>
-                      <option value="admin">Admin</option>
-                      <option value="user">User</option>
+                      <option value="superAdmin">Super Admin</option>
+                      <option value="director">Director</option>
+                      <option value="manager">Manager</option>
+                      <option value="users">Users</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div className="field">
                 <div className="control">
-                  <button type="submit" className="button is-success" style={{backgroundColor: 'black'}}>
+                  <button type="submit" className="button is-success" style={{ backgroundColor: 'black' }}>
                     Save
                   </button>
                 </div>
